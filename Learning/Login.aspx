@@ -21,12 +21,12 @@
                 <div class="input username" id="username">
                     <label for="TexUser">用户名</label>
                     <span></span>
-                    <input type="text" id="userName" />
+                    <input type="text" id="TxtName" />
                 </div>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
                     <span></span>
-                    <input type="password" id="TexPwd" />
+                    <input type="password" id="TxtPwd" />
                 </div>
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div id="btn" class="loginButton">
-                    <input type="button" class="button" value="登录" onclick="Login_Click"  />
+                    <input id="bnt" type="button" class="button" value="登录" onclick="login()"  />
                 </div>
             </div>
         </div>
@@ -52,6 +52,7 @@
    
 </div>
 </body>
+<script type="text/javascript" src="scripts/js/jquery.js"></script>
 <script type="text/javascript">
 	var height = $(window).height() > 445 ? $(window).height() : 445;
 	$("#container").height(height);
@@ -64,7 +65,14 @@
 		$('#bd').css('padding-top', bdheight);
     });
 	$('select').select();
-	
+	function login() {
+	    var name = $("Txtname").val;
+	    var pwd = $("TxtPwd").val;
+	    $.post('Login.ashx?action=login', {"name":name,"pwd":pwd}, function (data) {
+
+
+	    });
+	}
 	 
 </script>
 </html>
