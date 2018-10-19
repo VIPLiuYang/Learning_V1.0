@@ -47,6 +47,13 @@ namespace Learning.BLL
 			return dal.Exists(UserId);
 		}
 
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool strExists(string strWhere)
+        {
+            return dal.strExists(strWhere);
+        }
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>

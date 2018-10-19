@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Depart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicProperty.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="RoleModel.cs" />
     <Compile Include="RoleUser.cs" />

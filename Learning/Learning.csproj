@@ -98,6 +98,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Login.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -284,8 +285,10 @@
     <Content Include="scripts\js\editor_api%28冲突时的文件备份2014-04-30 19-06-40%29.js" />
     <Content Include="scripts\js\editor_api.js" />
     <Content Include="scripts\js\global.js" />
+    <Content Include="scripts\js\jquery-1.8.3.min.js" />
     <Content Include="scripts\js\jquery-ui-1.9.2.custom.js" />
     <Content Include="scripts\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="scripts\js\jquery.cookie.js" />
     <Content Include="scripts\js\jquery.dialog.js" />
     <Content Include="scripts\js\jquery.grid.js" />
     <Content Include="scripts\js\jquery.js" />
@@ -294,6 +297,7 @@
     <Content Include="scripts\js\jquery.select.js" />
     <Content Include="scripts\js\jquery.ztree.core-3.5.js" />
     <Content Include="scripts\js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="scripts\js\jsencrypt.min.js" />
     <Content Include="scripts\js\lang\en.js" />
     <Content Include="scripts\js\lang\zh-cn.js" />
     <Content Include="scripts\js\lang\zh-tw.js" />
@@ -526,11 +530,15 @@
     <Content Include="scripts\umeditor\_src\ui\widget.js" />
     <Content Include="viewImg.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Web\Index.aspx" />
-    <Content Include="Web\Nav.aspx" />
+    <Content Include="Index.aspx" />
+    <Content Include="Nav.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Com\Public.cs" />
     <Compile Include="Com\Session.cs" />
+    <Compile Include="Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -546,18 +554,18 @@
     <Compile Include="viewImg.aspx.designer.cs">
       <DependentUpon>viewImg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Index.aspx.cs">
+    <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Index.aspx.designer.cs">
+    <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web\Nav.aspx.cs">
+    <Compile Include="Nav.aspx.cs">
       <DependentUpon>Nav.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\Nav.aspx.designer.cs">
+    <Compile Include="Nav.aspx.designer.cs">
       <DependentUpon>Nav.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -575,7 +583,9 @@
       <Name>Learning.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Web\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
