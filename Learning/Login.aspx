@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Learning.Login" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -7,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
     <link rel="stylesheet" type="text/css" href="scripts/css/style.css" />
     <link rel="stylesheet" type="text/css" href="scripts/css/skin_/login.css" />
-
     <title>数字管理系统_用户登录</title>
 </head>
 
@@ -54,9 +52,12 @@
             </div>
             <div id="ft">CopyRight&nbsp;2018&nbsp;&nbsp;版权所有&nbsp;&nbsp;</div>
         </div>
-
     </div>
 </body>
+<script type="text/javascript" src="scripts/js/jquery.js"></script>
+<script type="text/javascript" src="scripts/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="scripts/js/jsencrypt.min.js"></script>
+<script type="text/javascript" src="scripts/js/jquery.select.js"></script>
 <script type="text/javascript">
     $.ajax({
         url: "Login.ashx",
@@ -71,10 +72,7 @@
         }
     });
 </script>
-<script type="text/javascript" src="scripts/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="scripts/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="scripts/js/jsencrypt.min.js"></script>
-<script type="text/javascript" src="scripts/js/jquery.select.js"></script>
+
 <script type="text/javascript">
     var height = $(window).height() > 445 ? $(window).height() : 445;
     $("#container").height(height);
@@ -101,17 +99,16 @@
         }
         sendData["Action"] = "Login";
         var prikey = "";
-
         var uncrypted = 0;
         $.ajax({
             url: reqUrl,
-            type: "TEXT",
+            type: "post",
             //async:false,
             data: { Action: sendData["Action"], UserName: sendData["LgName"], PassWord: sendData["Pwd"], TxtCode: sendData["Code"] },
             //data:sendData,
-            dataType: "json",
-            //contentType: 'application/json; charset=utf-8',
-            success: function (data) {
+            dataType: "text",
+            // contentType: "text/xml;charset=UTF-8",
+            success: function (data, textStatus) {
                 if (data == "001") {
                     window.location.href = "Index.aspx";
                 }
@@ -143,14 +140,13 @@
         });
     }
 
-
-
     //验证码单击事件
     function mmsCheckCode() {
         var myimg = document.getElementById("Img");
         myimg.src = 'viewImg.aspx?abc=' + Math.random();
         $("#valiDate").val('');
     }
+
     //页面初始化
     $(function () {
         bntLoginFun = function () {
@@ -171,8 +167,6 @@
             bntLoginFun();
         });
 
-
-
         //当按下键盘上的回车键时，提交登录表单
         $(document).keyup(function (event) {
             var data = [];
@@ -192,6 +186,5 @@
             }
         });
     });
-
 </script>
 </html>
