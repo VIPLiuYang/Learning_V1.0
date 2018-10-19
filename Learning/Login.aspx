@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="scripts/css/skin_/login.css" />
 <script type="text/javascript" src="scripts/js/jquery.js"></script> 
 <script type="text/javascript" src="scripts/js/jquery.select.js"></script>
-<title>数字管理系统_用户登录11211221</title>
+<title>数字管理系统_用户登录</title>
 </head>
 
 <body>
@@ -31,7 +31,8 @@
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
                     <input type="text" id="valiDate" />
-                    <div class="value">X3D5</div>
+                    <div class="value">
+                        <img alt="" src="viewImg.aspx" onclick="javascript:mmsCheckCode();" id="Img" /></div>
                 </div>
                 <div class="styleArea">
                     <div class="styleWrap">
@@ -43,11 +44,11 @@
                     </div>
                 </div>
                 <div id="btn" class="loginButton">
-                    <input type="button" class="button" value="登录" onclick="Login_Click"  />
+                    <input id="LoginBnt" type="button" class="button" value="登录"   />
                 </div>
             </div>
         </div>
-        <div id="ft">CopyRight&nbsp;2014&nbsp;&nbsp;版权所有&nbsp;&nbsp;samxinnet.com 仅供学习参考 &nbsp;&nbsp;</div>
+        <div id="ft">CopyRight&nbsp;2018&nbsp;&nbsp;版权所有&nbsp;&nbsp;</div>
     </div>
    
 </div>
@@ -64,7 +65,27 @@
 		$('#bd').css('padding-top', bdheight);
     });
 	$('select').select();
-	
+    //验证码单击事件
+	function mmsCheckCode() {
+	    var myimg = document.getElementById("Img");
+	    myimg.src = 'viewImg.aspx?abc=' + Math.random();
+	    $("#valiDate").val('');
+	}
+    //页面初始化
+	$(function () {
+	    bntLoginFun = function () {
+	        $("LoginBnt").unbind();
+	        $("LoginBnt").attr("disabled", "disabled");
+
+	        var data = [];
+	        data["LgName"] = $("TexUser").val;
+            data["Pwd"]=$("TexPwd").val;
+	    }
+
+	    $("LoginBnt").click(function () {
+
+	    });
+	});
 	 
 </script>
 </html>

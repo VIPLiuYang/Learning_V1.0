@@ -13,12 +13,5 @@ namespace Learning
         {
 
         }
-        protected void Login_Click(object sender, EventArgs e) {
-            //if (string.IsNullOrEmpty())
-            //{
-
-            //}
-
-        }
     }
 }

@@ -524,11 +524,13 @@
     <Content Include="scripts\umeditor\_src\ui\tooltip%28冲突时的文件备份2014-04-30 19-06-39%29.js" />
     <Content Include="scripts\umeditor\_src\ui\tooltip.js" />
     <Content Include="scripts\umeditor\_src\ui\widget.js" />
+    <Content Include="viewImg.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web\Index.aspx" />
     <Content Include="Web\Nav.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Com\Session.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -537,6 +539,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="viewImg.aspx.cs">
+      <DependentUpon>viewImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewImg.aspx.designer.cs">
+      <DependentUpon>viewImg.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -566,9 +575,7 @@
       <Name>Learning.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Com\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
