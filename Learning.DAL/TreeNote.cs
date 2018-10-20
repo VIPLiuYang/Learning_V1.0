@@ -285,6 +285,26 @@ namespace Learning.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        /// <summary>
+		/// 获得数据列表
+		/// </summary>
+		public DataSet GetTree(string strWhere)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append(" SELECT DISTINCT treeNote.treeNodeId,treeNote.fatherNoteId,TOrder from userInfo  left join  roleuser on userInfo.userId=roleUser.userId LEFT JOIN  ");
+            strSql.Append(" rolemodel on roleUser.roleID=roleModel.roleId  LEFT JOIN treeNote on roleModel.treeNodeId=treeNote.treeNodeId   "); 
+			if(strWhere.Trim()!="")
+			{
+				strSql.Append(" where "+strWhere);
+			}
+			return DbHelperSQL.Query(strSql.ToString());
+		}
+
+
+         
+
+
+
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>

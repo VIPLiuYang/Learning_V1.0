@@ -97,6 +97,14 @@ namespace Learning.BLL
 		{
 			return dal.GetList(strWhere);
 		}
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetTree(string strWhere)
+        {
+            return dal.GetTree(strWhere);
+        }
 		/// <summary>
 		/// 获得前几行数据
 		/// </summary>
