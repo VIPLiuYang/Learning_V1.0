@@ -28,7 +28,7 @@ namespace Learning
             { 
                 DataTable menuDt = Treenote_bll.GetList("treeNodeId in (" + string.Join(",", GetTreeNotes()) + ") order by TOrder").Tables[0];
                 DataRow[] drs = menuDt.Select("FatherNoteId=0");
-
+                //父节点生成
                 foreach (DataRow dr in drs)
                 {
                     if (string.IsNullOrEmpty(dr["Url"].ToString()))
