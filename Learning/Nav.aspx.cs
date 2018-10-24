@@ -36,6 +36,7 @@ namespace Learning
                         sb.Append("<li class=\"nav-li\">");
                         sb.Append("<a href=\"javascript:; \" class=\"ue-clear\"><i class=\"nav-ivon\"></i><span class=\"nav-text\">" + dr["NoteName"].ToString() + "</span></a>");
                         sb.Append("<ul class=\"subnav\">");
+                        //sb.Append("<li class=\"subnav-li\" href=\"\" data-id=\"0\"><a href=\"javascript:; \" class=\"ue-clear\"><i class=\"subnav-icon\"></i><span class=\"subnav-text\">首页</span></a></li>");
                         int menuId1 = int.Parse(dr["TreeNodeId"].ToString());
                         TreeViewChildAdd(menuId1, sb, menuDt);
                         sb.Append("</ul>");

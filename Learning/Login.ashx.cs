@@ -81,6 +81,16 @@ namespace Learning
                 }
                 context.Response.Write(str);
             }
+            else if (action == "out")//退出
+            {
+                /*PublicMethod.Clear();*/ 
+                context.Session.Clear();
+                context.Session.Abandon();
+                context.Response.Clear();
+                //清除cookies
+                // Com.CookieHelper.ClearCookie("uname");
+                context.Response.Write("out");
+            }
 
         }
         protected bool recode(string txtcode, HttpContext context)

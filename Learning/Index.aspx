@@ -19,7 +19,7 @@
             <h1 class="logo"><a href="javascript:;" class="logo-icon"></a></h1>
             <div class="user-info">
                 <a href="javascript:;" class="user-avatar"><span><i class="info-num">2</i></span></a>
-                <span class="user-name">admin</span>
+                <span class="user-name"><%=uname %></span>
                 <a href="javascript:;" class="more-info"></a>
             </div>
             <div class="setting ue-clear">
@@ -77,7 +77,7 @@
         </div>
         <div class="ft2 ue-clear">
         	<span>Call Center</span>
-            <em>V2.0 2014</em>
+            <em>V1.0 2018</em>
             <i class="ft-icon2"></i>
         </div>
     </div>
@@ -186,7 +186,25 @@ $('.exitDialog input[type=button]').click(function(e) {
     $('.exitDialog').Dialog('close');
 	
 	if($(this).hasClass('ok')){
-		window.location.href = "login.html"	;
+	    //window.location.href = "login.html"	;
+	    $.ajax({
+	        url: "Login.ashx",
+	        type: "POST",
+	        //async:false,
+	        data: { Action: "out" },
+	        //data:sendData,
+	        dataType: "text",
+	        //contentType: 'application/json; charset=utf-8',
+	        success: function (data, textStatus) {
+	            if (data == "out") {
+	                //alert("退出登录成功");
+	                window.location.href = "Login.aspx";
+	            }
+	            else {
+	                alert("退出登录失败");
+	            }
+	        }
+	    })
 	}
 });
 

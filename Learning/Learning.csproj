@@ -94,11 +94,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.ashx" />
+    <Content Include="Web\SystemSetup\SysButton.aspx" />
+    <Content Include="Web\SystemSetup\SysDepart.aspx" />
+    <Content Include="Web\SystemSetup\SysMenu.aspx" />
+    <Content Include="Web\SystemSetup\SysRole.aspx" />
+    <Content Include="Web\SystemSetup\SysUser.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -568,6 +574,41 @@
     <Compile Include="Nav.aspx.designer.cs">
       <DependentUpon>Nav.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web\SystemSetup\SysButton.aspx.cs">
+      <DependentUpon>SysButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysButton.aspx.designer.cs">
+      <DependentUpon>SysButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysDepart.aspx.cs">
+      <DependentUpon>SysDepart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysDepart.aspx.designer.cs">
+      <DependentUpon>SysDepart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysMenu.aspx.cs">
+      <DependentUpon>SysMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysMenu.aspx.designer.cs">
+      <DependentUpon>SysMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysRole.aspx.cs">
+      <DependentUpon>SysRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysRole.aspx.designer.cs">
+      <DependentUpon>SysRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysUser.aspx.cs">
+      <DependentUpon>SysUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\SystemSetup\SysUser.aspx.designer.cs">
+      <DependentUpon>SysUser.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Learning.BLL\Learning.BLL.csproj">
@@ -583,9 +624,7 @@
       <Name>Learning.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Web\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
