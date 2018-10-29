@@ -100,11 +100,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Login.ashx" />
+    <Content Include="scripts\css\iconfont.css" />
     <Content Include="Web\SystemSetup\SysButton.aspx" />
     <Content Include="Web\SystemSetup\SysDepart.aspx" />
     <Content Include="Web\SystemSetup\SysMenu.aspx" />
     <Content Include="Web\SystemSetup\SysRole.aspx" />
     <Content Include="Web\SystemSetup\SysUser.aspx" />
+    <Content Include="scripts\fonts\iconfont.ttf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

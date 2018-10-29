@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
     <link rel="stylesheet" type="text/css" href="scripts/css/style.css" />
     <link rel="stylesheet" type="text/css" href="scripts/css/skin_/login.css" />
+    <link rel="stylesheet" type="text/css" href="../../js/H-ui.admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
+    <link href="scripts/css/iconfont.css" type="text/css" rel="stylesheet"  />
     <title>数字管理系统_用户登录</title>
 </head>
 
@@ -50,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div id="ft">CopyRight&nbsp;2018&nbsp;&nbsp;版权所有&nbsp;&nbsp;</div>
+            <div id="ft">CopyRight&nbsp;2018&nbsp;&nbsp;版权所有&nbsp;&nbsp;</div> 
         </div>
     </div>
 </body>
