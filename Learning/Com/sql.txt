@@ -1,0 +1,357 @@
+USE [master]
+GO
+/****** Object:  Database [SysBasic]    Script Date: 10/29/2018 20:04:07 ******/
+CREATE DATABASE [SysBasic] ON  PRIMARY 
+( NAME = N'SysBasic', FILENAME = N'C:\Program Files (x86)\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\SysBasic.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'SysBasic_log', FILENAME = N'C:\Program Files (x86)\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\DATA\SysBasic_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [SysBasic] SET COMPATIBILITY_LEVEL = 100
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [SysBasic].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [SysBasic] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [SysBasic] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [SysBasic] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [SysBasic] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [SysBasic] SET ARITHABORT OFF
+GO
+ALTER DATABASE [SysBasic] SET AUTO_CLOSE OFF
+GO
+ALTER DATABASE [SysBasic] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [SysBasic] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [SysBasic] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [SysBasic] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [SysBasic] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [SysBasic] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [SysBasic] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [SysBasic] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [SysBasic] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [SysBasic] SET  DISABLE_BROKER
+GO
+ALTER DATABASE [SysBasic] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [SysBasic] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [SysBasic] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [SysBasic] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [SysBasic] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [SysBasic] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [SysBasic] SET HONOR_BROKER_PRIORITY OFF
+GO
+ALTER DATABASE [SysBasic] SET  READ_WRITE
+GO
+ALTER DATABASE [SysBasic] SET RECOVERY FULL
+GO
+ALTER DATABASE [SysBasic] SET  MULTI_USER
+GO
+ALTER DATABASE [SysBasic] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [SysBasic] SET DB_CHAINING OFF
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'SysBasic', N'ON'
+GO
+USE [SysBasic]
+GO
+/****** Object:  Table [dbo].[UserInfo]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[UserInfo](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[WorkerID] [varchar](50) NULL,
+	[UserName] [varchar](50) NOT NULL,
+	[Pwd] [varchar](50) NOT NULL,
+	[Status] [tinyint] NULL,
+	[SID] [varchar](1024) NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Phone] [varchar](50) NULL,
+	[QQ] [varchar](50) NULL,
+	[Email] [varchar](500) NULL,
+	[DepartId] [varchar](50) NOT NULL,
+	[Address] [varchar](500) NULL,
+	[HeadImg] [nvarchar](500) NULL,
+	[Money] [varchar](50) NULL,
+	[Permission] [int] NULL,
+	[idcard] [varchar](50) NULL,
+	[iszonghe] [tinyint] NULL,
+	[inssj] [datetime] NULL,
+	[udsj] [datetime] NULL,
+ CONSTRAINT [PK_UserInfo] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'身份证' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'UserInfo', @level2type=N'COLUMN',@level2name=N'idcard'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否是综合管理员：0-否；1-是；' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'UserInfo', @level2type=N'COLUMN',@level2name=N'iszonghe'
+GO
+SET IDENTITY_INSERT [dbo].[UserInfo] ON
+INSERT [dbo].[UserInfo] ([UserId], [WorkerID], [UserName], [Pwd], [Status], [SID], [Name], [Phone], [QQ], [Email], [DepartId], [Address], [HeadImg], [Money], [Permission], [idcard], [iszonghe], [inssj], [udsj]) VALUES (2175, N'100001', N'admin', N'06c9d50d4e94bed00aebe84b832ca8db', 1, N'da2f295d-1230-4f4d-b526-fe788d2cadfs', N'管理员', N'', N'', N'', N'2130', N'', N'../App_File/Icon/default/default.gif', NULL, 1000, N'123456789', 0, NULL, CAST(0x0000A490009DCFC7 AS DateTime))
+INSERT [dbo].[UserInfo] ([UserId], [WorkerID], [UserName], [Pwd], [Status], [SID], [Name], [Phone], [QQ], [Email], [DepartId], [Address], [HeadImg], [Money], [Permission], [idcard], [iszonghe], [inssj], [udsj]) VALUES (2178, N'100001', N'test', N'06c9d50d4e94bed00aebe84b832ca8db', 1, N'0D81AE64AD2BE018528BE9DFC97954B8C30B5482E61465FE2757161559CFFBC85D51FB780AD051AE', N'测试', N'321', N'321', N'321', N'2130', N'321', N'321', NULL, 100, N'370983199009106974', 1, NULL, CAST(0x0000A49000ADF4C7 AS DateTime))
+INSERT [dbo].[UserInfo] ([UserId], [WorkerID], [UserName], [Pwd], [Status], [SID], [Name], [Phone], [QQ], [Email], [DepartId], [Address], [HeadImg], [Money], [Permission], [idcard], [iszonghe], [inssj], [udsj]) VALUES (2179, N'100001', N'liuyang', N'06c9d50d4e94bed00aebe84b832ca8db', 1, N'0D81AE64AD2BE018528BE9DFC97954B8C30B5482E61465FE2757161559CFFBC85D51FB780AD051AE', N'刘洋', N'321', N'321', N'321', N'2130', N'321', N'321', NULL, 100, N'370983199009106974', 1, NULL, CAST(0x0000A49000ADF4C7 AS DateTime))
+INSERT [dbo].[UserInfo] ([UserId], [WorkerID], [UserName], [Pwd], [Status], [SID], [Name], [Phone], [QQ], [Email], [DepartId], [Address], [HeadImg], [Money], [Permission], [idcard], [iszonghe], [inssj], [udsj]) VALUES (2180, N'100001', N'zjlbgs', N'06c9d50d4e94bed00aebe84b832ca8db', 1, NULL, N'总经理办公室(测试)', NULL, NULL, NULL, N'2131', NULL, NULL, NULL, 1024, NULL, 1, NULL, NULL)
+INSERT [dbo].[UserInfo] ([UserId], [WorkerID], [UserName], [Pwd], [Status], [SID], [Name], [Phone], [QQ], [Email], [DepartId], [Address], [HeadImg], [Money], [Permission], [idcard], [iszonghe], [inssj], [udsj]) VALUES (2182, N'100001', N'xmz', N'06c9d50d4e94bed00aebe84b832ca8db', 1, NULL, N'项目组(测试)', NULL, NULL, NULL, N'2132', NULL, NULL, NULL, 2132, NULL, 1, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[UserInfo] OFF
+/****** Object:  Table [dbo].[TreeNote]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[TreeNote](
+	[TreeNodeId] [int] IDENTITY(1,1) NOT NULL,
+	[NoteName] [varchar](50) NULL,
+	[FatherNoteId] [int] NULL,
+	[Url] [varchar](500) NULL,
+	[ImgUrl] [varchar](50) NULL,
+	[Status] [varchar](50) NOT NULL,
+	[WebId] [int] NULL,
+	[Code] [nvarchar](50) NULL,
+	[TOrder] [int] NULL,
+	[price] [money] NULL,
+ CONSTRAINT [PK_TreeNote] PRIMARY KEY CLUSTERED 
+(
+	[TreeNodeId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[TreeNote] ON
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (405, N'系统设置', 0, N'', N'icon icon-dh', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (406, N'其他', 0, N'', N'icon icon-dh', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (407, N'菜单管理', 405, N'Web/SystemSetup/SysMenu.aspx', N'icon icon-layout', N'1', 110, N'Menu', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (408, N'用户管理', 405, N'Web/SystemSetup/SysUser.aspx', N'icon icon-user_suit_black', N'1', 110, N'user', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (409, N'部门管理', 405, N'Web/SystemSetup/SysDepart.aspx', N'icon icon-group', N'1', 110, N'department', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (410, N'角色管理', 405, N'Web/SystemSetup/SysRole.aspx', N'icon icon-key_go', N'1', 110, N'role', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (411, N'按钮管理', 405, N'Web/SystemSetup/SysButton.aspx', N'icon icon-button', N'1', 110, N'button', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (412, N'登录日志', 406, N'User/User', N'icon icon-drive_user', N'1', 110, N'loginlog', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (413, N'操作日志', 406, N'Menu/Menu', N'icon icon-table', N'1', 110, N'operatelog', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (414, N'Bug反馈', 406, N'User/User', N'icon icon-bug', N'1', 110, N'bugs', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (415, N'个人设置', 0, N'User/User', N'icon icon-dh', N'1', 110, N'my', 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (416, N'个人信息', 415, N'User/User', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (417, N'密码修改', 415, N'User/User', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (418, N'内部消息', 0, N'User/User', N'icon icon-dh', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (419, N'收到的消息', 418, N'Menu/Menu', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (420, N'我发起的事项', 0, N'Menu/Menu', N'icon icon-dh', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (421, N'我的草稿', 420, N'Humanplan/Humanplan', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (422, N'发送消息', 420, N'HumanplanSH/HumanplanSH', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+INSERT [dbo].[TreeNote] ([TreeNodeId], [NoteName], [FatherNoteId], [Url], [ImgUrl], [Status], [WebId], [Code], [TOrder], [price]) VALUES (423, N'常用语设置', 415, N'HumanplanCheXiao/HumanplanCheXiao', N'icon icon-bug', N'1', 110, NULL, 1, 0.0000)
+SET IDENTITY_INSERT [dbo].[TreeNote] OFF
+/****** Object:  Table [dbo].[RoleUser]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RoleUser](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[RoleID] [int] NOT NULL,
+ CONSTRAINT [PK_RoleUser] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[RoleUser] ON
+INSERT [dbo].[RoleUser] ([Id], [UserId], [RoleID]) VALUES (1759, 2175, 189)
+INSERT [dbo].[RoleUser] ([Id], [UserId], [RoleID]) VALUES (1760, 2178, 190)
+INSERT [dbo].[RoleUser] ([Id], [UserId], [RoleID]) VALUES (1761, 2179, 191)
+INSERT [dbo].[RoleUser] ([Id], [UserId], [RoleID]) VALUES (1764, 2180, 189)
+SET IDENTITY_INSERT [dbo].[RoleUser] OFF
+/****** Object:  Table [dbo].[RoleModel]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RoleModel](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[RoleId] [int] NOT NULL,
+	[TreeNodeId] [int] NOT NULL,
+	[ButtonId] [int] NULL,
+ CONSTRAINT [PK_RoleModel] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[RoleModel] ON
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3828, 189, 405, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3830, 189, 406, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3831, 189, 407, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3832, 189, 408, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3833, 189, 409, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3834, 189, 410, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3835, 189, 411, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3836, 189, 412, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3837, 189, 413, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3838, 189, 414, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3839, 189, 415, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3840, 189, 416, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3841, 189, 417, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3843, 189, 418, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3844, 189, 419, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3845, 189, 420, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3846, 189, 421, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3847, 189, 422, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3848, 189, 423, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3851, 190, 406, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3857, 190, 412, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3858, 190, 413, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3859, 190, 414, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3860, 190, 415, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3861, 190, 416, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3862, 190, 417, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3867, 190, 418, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3868, 190, 419, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3869, 190, 420, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3870, 190, 421, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3871, 190, 422, NULL)
+INSERT [dbo].[RoleModel] ([Id], [RoleId], [TreeNodeId], [ButtonId]) VALUES (3872, 190, 423, NULL)
+SET IDENTITY_INSERT [dbo].[RoleModel] OFF
+/****** Object:  Table [dbo].[Role]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Role](
+	[RoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [varchar](20) NOT NULL,
+	[FatherId] [int] NULL,
+	[Comment] [text] NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Role', @level2type=N'COLUMN',@level2name=N'Comment'
+GO
+SET IDENTITY_INSERT [dbo].[Role] ON
+INSERT [dbo].[Role] ([RoleID], [RoleName], [FatherId], [Comment]) VALUES (189, N'超级管理员', 0, N'拥有所有增删改查权限')
+INSERT [dbo].[Role] ([RoleID], [RoleName], [FatherId], [Comment]) VALUES (190, N'事业部', 0, N'仅拥有浏览菜单的权限，无增删改权限')
+INSERT [dbo].[Role] ([RoleID], [RoleName], [FatherId], [Comment]) VALUES (191, N'研发组', 0, N'仅拥有浏览菜单的权限，无删改权限')
+INSERT [dbo].[Role] ([RoleID], [RoleName], [FatherId], [Comment]) VALUES (192, N'研发经理', 0, NULL)
+INSERT [dbo].[Role] ([RoleID], [RoleName], [FatherId], [Comment]) VALUES (193, N'工程师', 0, NULL)
+SET IDENTITY_INSERT [dbo].[Role] OFF
+/****** Object:  Table [dbo].[Depart]    Script Date: 10/29/2018 20:04:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Depart](
+	[DepartId] [int] IDENTITY(1,1) NOT NULL,
+	[DepartName] [varchar](50) NULL,
+	[Manager] [varchar](50) NULL,
+	[FatherId] [int] NULL,
+	[DOrder] [int] NULL,
+	[address] [varchar](50) NULL,
+	[tel] [nvarchar](20) NULL,
+	[type] [tinyint] NULL,
+	[state] [tinyint] NULL,
+	[deptcode] [nvarchar](200) NULL,
+	[sort] [int] NULL,
+	[z-index] [int] NULL,
+ CONSTRAINT [PK_Depart] PRIMARY KEY CLUSTERED 
+(
+	[DepartId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效：0-无效；1-有效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Depart', @level2type=N'COLUMN',@level2name=N'state'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Depart', @level2type=N'COLUMN',@level2name=N'sort'
+GO
+SET IDENTITY_INSERT [dbo].[Depart] ON
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2130, N'集团董事会', NULL, 0, NULL, NULL, NULL, NULL, 1, N'jituandongshihui-2130', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2131, N'总经理办公室', NULL, 0, NULL, NULL, NULL, NULL, 1, N'zongjinglibangongshi-2131', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2132, N'项目组', NULL, 0, NULL, NULL, NULL, NULL, 1, N'xiangmuzu-2132', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2133, N'财务部', NULL, 0, NULL, NULL, NULL, NULL, 1, N'caiwubu-2133', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2134, N'客服中心', NULL, 0, NULL, NULL, NULL, NULL, 1, N'kefuzhongxin-2134', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2135, N'运营中心', NULL, 0, NULL, NULL, NULL, NULL, 1, N'yunyingzhongxin-2135', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2136, N'技术部', NULL, 0, NULL, NULL, NULL, NULL, 1, N'jishubu-2136', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2137, N'采销部', NULL, 0, NULL, NULL, NULL, NULL, 1, N'caixiaobu-2137', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2138, N'人力资源部', NULL, 0, NULL, NULL, NULL, NULL, 1, N'renliziyuanbu-2138', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2139, N'售后部', NULL, 0, NULL, NULL, NULL, NULL, 1, N'shouhoubu-2139', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2140, N'物流中心', NULL, 0, NULL, NULL, NULL, NULL, 1, N'wuliuzhongxin-2140', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2141, N'企业采购项目组', NULL, 2132, NULL, NULL, NULL, NULL, 1, N'qiyecaigouxiangmuzu-2141', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2142, N'团体合作项目组', NULL, 2132, NULL, NULL, NULL, NULL, 1, N'tuantihezuoxiangmuzu-2142', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2143, N'校园代理项目组', NULL, 2132, NULL, NULL, NULL, NULL, 1, N'xiaoyuandailixiangmuzu-2143', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2144, N'财务出纳部', NULL, 2133, NULL, NULL, NULL, NULL, 1, N'caiwuchunabu-2144', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2145, N'订单处理中心', NULL, 2134, NULL, NULL, NULL, NULL, 1, N'dingdanchulizhongxin-2145', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2146, N'投诉处理中心', NULL, 2134, NULL, NULL, NULL, NULL, 1, N'tousuchulizhongxin-2146', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2147, N'在线问答中心', NULL, 2134, NULL, NULL, NULL, NULL, 1, N'zaixianwendazhongxin-2147', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2148, N'网站推广部', NULL, 2135, NULL, NULL, NULL, NULL, 1, N'wangzhantuiguangbu-2148', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2149, N'网站策划部', NULL, 2135, NULL, NULL, NULL, NULL, 1, N'wangzhancehuabu-2149', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2150, N'网站营销部', NULL, 2135, NULL, NULL, NULL, NULL, 1, N'wangzhanyingxiaobu-2150', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2151, N'程序开发部', NULL, 2136, NULL, NULL, NULL, NULL, 1, N'chengxukaifabu-2151', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2152, N'网站美工部', NULL, 2136, NULL, NULL, NULL, NULL, 1, N'wangzhanmeigongbu-2152', NULL, NULL)
+INSERT [dbo].[Depart] ([DepartId], [DepartName], [Manager], [FatherId], [DOrder], [address], [tel], [type], [state], [deptcode], [sort], [z-index]) VALUES (2153, N'软件开发部', NULL, 2136, NULL, NULL, NULL, NULL, 1, N'ruanjiankaifabu-2153', NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Depart] OFF
+/****** Object:  Default [DF_UserInfo_Pwd]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[UserInfo] ADD  CONSTRAINT [DF_UserInfo_Pwd]  DEFAULT ('edc5af8367eb9bd8') FOR [Pwd]
+GO
+/****** Object:  Default [DF_UserInfo_Status]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[UserInfo] ADD  CONSTRAINT [DF_UserInfo_Status]  DEFAULT ((1)) FOR [Status]
+GO
+/****** Object:  Default [DF_UserInfo_Permission]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[UserInfo] ADD  CONSTRAINT [DF_UserInfo_Permission]  DEFAULT ((1024)) FOR [Permission]
+GO
+/****** Object:  Default [DF_UserInfo_iszonghe]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[UserInfo] ADD  CONSTRAINT [DF_UserInfo_iszonghe]  DEFAULT ((0)) FOR [iszonghe]
+GO
+/****** Object:  Default [DF_TreeNote_FatherNoteId]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[TreeNote] ADD  CONSTRAINT [DF_TreeNote_FatherNoteId]  DEFAULT ((0)) FOR [FatherNoteId]
+GO
+/****** Object:  Default [DF_TreeNote_Url]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[TreeNote] ADD  CONSTRAINT [DF_TreeNote_Url]  DEFAULT ('#') FOR [Url]
+GO
+/****** Object:  Default [DF_TreeNote_Status]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[TreeNote] ADD  CONSTRAINT [DF_TreeNote_Status]  DEFAULT ((1)) FOR [Status]
+GO
+/****** Object:  Default [DF_TreeNote_TOrder]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[TreeNote] ADD  CONSTRAINT [DF_TreeNote_TOrder]  DEFAULT ((1)) FOR [TOrder]
+GO
+/****** Object:  Default [DF_TreeNote_price]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[TreeNote] ADD  CONSTRAINT [DF_TreeNote_price]  DEFAULT ((0)) FOR [price]
+GO
+/****** Object:  Default [DF_Depart_state]    Script Date: 10/29/2018 20:04:07 ******/
+ALTER TABLE [dbo].[Depart] ADD  CONSTRAINT [DF_Depart_state]  DEFAULT ((1)) FOR [state]
+GO
+
