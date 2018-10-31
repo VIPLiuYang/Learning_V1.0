@@ -542,6 +542,7 @@
     <Content Include="Nav.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Com\DataPack.cs" />
     <Compile Include="Com\Public.cs" />
     <Compile Include="Com\Session.cs" />
     <Compile Include="Login.ashx.cs">
