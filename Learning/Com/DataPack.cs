@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -46,7 +47,8 @@ namespace Learning.Com
             /// <summary>
             /// 分页大小-以多少条分页
             /// </summary>
-            public int PageSize { get; set; }  
+            public int PageSize { get; set; }
+            public DataTable list;
         }
     }
 }

@@ -34,12 +34,18 @@ namespace Learning.Web.SystemSetup
                 pages.PageIndex = int.Parse(PageIndex);
                 pages.PageSize = int.Parse(PageSize);
                 int rowc = 0; int pc = 0;
-                DataTable userdt = user_bll.GetListCols("", "", "SchName", "", pages.PageIndex, pages.PageSize, ref rowc, ref pc).Tables[0];
-
+                string cols = "UserId,WorkerID,UserName,Status,Name,Phone,QQ,Email,DepartId,Address,HeadImg,inssj,udsj";
+                DataTable userdt = user_bll.GetListCols(cols, "1=1", "UserId", "", pages.PageIndex, pages.PageSize, ref rowc, ref pc).Tables[0];
+                pages.PageCount = pc;
+                pages.RowCount = rowc;
+                if (userdt.Rows.Count > 0)
+                {
+                    pages.list = userdt;
+                }
+                rsp.data = Newtonsoft.Json.JsonConvert.SerializeObject(pages).Replace("\n\r", ""); 
             }
             catch (Exception ex)
-            {
-                
+            { 
                 throw;
             }
             return rsp;

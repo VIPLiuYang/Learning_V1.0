@@ -355,3 +355,52 @@ GO
 ALTER TABLE [dbo].[Depart] ADD  CONSTRAINT [DF_Depart_state]  DEFAULT ((1)) FOR [state]
 GO
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+USE [SysBasic]
+GO
+
+/****** Object:  StoredProcedure [dbo].[XiaoZhengGe]    Script Date: 10/31/2018 11:00:27 ******/
+SET ANSI_NULLS OFF
+GO
+
+SET QUOTED_IDENTIFIER OFF
+GO
+
+
+
+CREATE  procedure [dbo].[XiaoZhengGe]
+  @sqlstr nvarchar(4000), --查询字符串
+  @currentpage int, --第N页
+  @pagesize int, --每页行数
+ @pagecount int output ,
+  @rowcount int output 
+ 
+  as
+  set nocount on
+  declare @P1 int --P1是游标的id 
+  exec sp_cursoropen @P1 output,@sqlstr,@scrollopt=1,@ccopt=1,@rowcount=@rowcount output
+  set  @pagecount=ceiling(1.0*@rowcount/@pagesize) --as 总页数--,@rowcount as 总行数,@currentpage as 当前页 
+if(@currentpage=-1) 
+	set @currentpage=@pagecount
+  set @currentpage=(@currentpage-1)*@pagesize+1
+  exec sp_cursorfetch @P1,16,@currentpage,@pagesize 
+  exec sp_cursorclose @P1
+ set nocount off
+
+
+GO
+
+
+
