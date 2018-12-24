@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SysButton.aspx.cs" Inherits="Learning.Web.SystemSetup.SysButton" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SysButton.aspx.cs" Inherits="Learning.Web.SystemSetup.SysButton" %>
 
 <!DOCTYPE html>
 
