@@ -83,7 +83,7 @@
 
     $(document).ready(function () { Search(); });//默认执行
 
-    $('.grid').Grid('addLoading'); 
+    $('.grid').Grid('addLoading');
     /// 模拟异步
     setTimeout(function () {
         $('.grid').Grid('setData', tbody, head);
@@ -96,7 +96,7 @@
         display_msg: false
     });
 
-  
+
 
     var clients = [];//初始化用户信息
 
@@ -121,9 +121,9 @@
                 else if (data.d.code == "error") {
                     alert(data.d.msg);
                 }
-                else { 
-                    var obj = eval('(' + data.d.data + ')'); 
-                    clients = obj.list; 
+                else {
+                    var obj = eval('(' + data.d.data + ')');
+                    clients = obj.list;
                     $(".grid").jsGrid({
                         width: "100%",
                         height: "100%",
@@ -135,21 +135,21 @@
                         sorting: true,//启动排序 false,
                         paging: true,//启动分页 false,
                         data: clients,//表格静态数据源 [],
-                        editButton:true,
-                        controller:{ 
+                        editButton: true,
+                        controller: {
                             loadData: loadData
                         }, //四个控制器，用于增删改查与后台交互形式的定义,详细见扩展1 ,
                         fields: [
-                            { name: "UserId",title:"用户ID", type: "text", width: 50 },
-                            { name: "UserName",title:"登录名", type: "text", width: 100 },
+                            { name: "UserId", title: "用户ID", type: "text", width: 50 },
+                            { name: "UserName", title: "登录名", type: "text", width: 100 },
                             { name: "Name", title: "用户姓名", type: "text", width: 100 },
                             { name: "Status", title: "状态", type: "text", width: 100 },
                             { name: "Email", title: "Email", type: "text", width: 200 },
                              { name: "inssj", title: "注册时间", type: "text", width: 200 },
                               {
-                                  type: "control" 
+                                  type: "control"
                               }
-                                
+
                         ]//表头字段 [],
                     });
                 }
@@ -167,7 +167,7 @@
     function uddate() {
         alert("11")
     }
-   
+
 
 </script>
 </html>
