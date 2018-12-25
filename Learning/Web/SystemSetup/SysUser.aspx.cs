@@ -20,8 +20,7 @@ namespace Learning.Web.SystemSetup
                 rsp.code = "expire";
                 rsp.msg = "页面已经过期，请重新登录";
             }
-        }
-
+        } 
 
         [WebMethod]
         public static Com.DataPack.DataRsp<string> page(string PageIndex, string PageSize, string uname, string ustat)
@@ -34,7 +33,8 @@ namespace Learning.Web.SystemSetup
                 pages.PageIndex = int.Parse(PageIndex);
                 pages.PageSize = int.Parse(PageSize);
                 int rowc = 0; int pc = 0;
-                string cols = "UserId,WorkerID,UserName,Status,Name,Phone,QQ,Email,DepartId,Address,HeadImg,inssj,udsj";
+               // ,DepartId,Address,HeadImg,inssj,udsj
+                string cols = "UserId,UserName,Name,Status,Email,inssj";
                 DataTable userdt = user_bll.GetListCols(cols, "1=1", "UserId", "", pages.PageIndex, pages.PageSize, ref rowc, ref pc).Tables[0];
                 pages.PageCount = pc;
                 pages.RowCount = rowc;

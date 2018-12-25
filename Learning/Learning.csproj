@@ -105,12 +105,32 @@
     </Content>
     <Content Include="Login.ashx" />
     <Content Include="scripts\css\iconfont.css" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-de.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-es.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-fr.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-he.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-ja.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-ka.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-pl.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-pt-br.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-pt.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-ru.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-tr.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-zh-cn.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\i18n\jsgrid-zh-tw.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid-theme.css" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid-theme.min.css" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid.css" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid.js" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid.min.css" />
+    <Content Include="scripts\js\jsgrid-1.5.3\jsgrid.min.js" />
     <Content Include="Web\SystemSetup\SysButton.aspx" />
     <Content Include="Web\SystemSetup\SysDepart.aspx" />
     <Content Include="Web\SystemSetup\SysMenu.aspx" />
     <Content Include="Web\SystemSetup\SysRole.aspx" />
     <Content Include="Web\SystemSetup\SysUser.aspx" />
     <Content Include="scripts\fonts\iconfont.ttf" />
+    <None Include="Properties\PublishProfiles\Learning_1.0.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

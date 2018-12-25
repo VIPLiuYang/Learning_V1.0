@@ -380,7 +380,7 @@ namespace Learning.DAL
             string procname = "XiaoZhengGe";
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select " + cols);
-            strSql.Append(" FROM SchInfo  ");
+            strSql.Append(" FROM UserInfo  ");
             //strSql.Append(" left join SchInfo as b on a.SchId=b.SchId	 ");
             //strSql.Append(" left join SchDepartInfo as c on c.Pid=a.DepartId	 ");
             if (strWhere.Trim() != "")
